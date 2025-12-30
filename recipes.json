@@ -4,6 +4,7 @@
     "title": "Arroz con Leche",
     "subtitle": "Rice Pudding",
     "description": "Classic rice pudding with cinnamon, cloves, and a hint of flan. Creamy, sweet, and worth the constant stirring.",
+    "image": null,
     "tags": ["Dessert", "Family Favorite"],
     "ingredients": [
       "1 cup rice",
@@ -33,6 +34,7 @@
     "title": "Sunday Pancakes",
     "subtitle": "The ones you remember",
     "description": "Fluffy pancakes that Apa made every Sunday morning. No fancy ingredients, just done right.",
+    "image": null,
     "tags": ["Breakfast", "Sunday"],
     "ingredients": [
       "2 cups all-purpose flour",
@@ -63,6 +65,7 @@
     "title": "Caldo de Pollo",
     "subtitle": "Chicken Soup",
     "description": "The cure for everything. Simple, hearty, and makes the whole house smell like home.",
+    "image": null,
     "tags": ["Soup", "Comfort Food"],
     "ingredients": [
       "1 whole chicken, cut into pieces",
@@ -97,6 +100,7 @@
     "title": "Guisado de Res",
     "subtitle": "Beef Stew",
     "description": "Tender beef in a rich tomato-based sauce. Serve over rice and watch it disappear.",
+    "image": null,
     "tags": ["Dinner", "Comfort Food"],
     "ingredients": [
       "2 lbs beef stew meat, cubed",

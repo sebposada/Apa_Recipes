@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe - Grumpy Apa's Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        .form-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--paper-dark);
+            border: 1px solid var(--gray-line);
+            border-radius: var(--card-radius);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-line);
+            border-radius: var(--card-radius);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            background: white;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .array-input {
+            margin-bottom: 0.5rem;
+        }
+
+        .add-button, .remove-button {
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            border: 1px solid var(--gray-line);
+            border-radius: var(--card-radius);
+            background: white;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .add-button:hover {
+            background: var(--accent-bg);
+        }
+
+        .remove-button {
+            background: #fee;
+            border-color: #fcc;
+            margin-left: 0.5rem;
+        }
+
+        .generate-button {
+            padding: 1rem 2rem;
+            background: var(--stamp-red);
+            color: white;
+            border: none;
+            border-radius: var(--card-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .generate-button:hover {
+            background: hsl(5, 52%, 40%);
+        }
+
+        #output {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: var(--card-radius);
+            font-family: monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .copy-button {
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--enamel-blue);
+            color: white;
+            border: none;
+            border-radius: var(--card-radius);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .copy-button:hover {
+            background: hsl(210, 30%, 35%);
+        }
+
+        .helper-text {
+            font-size: 0.875rem;
+            color: var(--gray-mid);
+            margin-top: 0.25rem;
+        }
+
+        .item-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .item-wrapper input {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">Grumpy Apa's Kitchen</h1>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">Add Recipe</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="form-section">
+                <h2>Add New Recipe</h2>
+                <p class="helper-text" style="margin-bottom: 2rem;">Fill out the form below and click "Generate JSON" to create the recipe entry. Then copy/paste it into recipes.json.</p>
+
+                <form id="recipe-form">
+                    <div class="form-group">
+                        <label for="id">Recipe ID *</label>
+                        <input type="text" id="id" required>
+                        <p class="helper-text">Lowercase, use dashes (e.g., "arroz-con-leche")</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subtitle">Subtitle</label>
+                        <input type="text" id="subtitle">
+                        <p class="helper-text">Optional (e.g., "Rice Pudding")</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image Filename</label>
+                        <input type="text" id="image">
+                        <p class="helper-text">Optional. Just the filename (e.g., "arroz-con-leche.jpg"). Upload image to images/ folder first.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tags *</label>
+                        <div id="tags-container"></div>
+                        <button type="button" class="add-button" onclick="addTag()">+ Add Tag</button>
+                        <p class="helper-text">e.g., "Dessert", "Family Favorite", "Breakfast"</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ingredients *</label>
+                        <div id="ingredients-container"></div>
+                        <button type="button" class="add-button" onclick="addIngredient()">+ Add Ingredient</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Instructions *</label>
+                        <div id="instructions-container"></div>
+                        <button type="button" class="add-button" onclick="addInstruction()">+ Add Step</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tips from Apa</label>
+                        <div id="tips-container"></div>
+                        <button type="button" class="add-button" onclick="addTip()">+ Add Tip</button>
+                    </div>
+
+                    <button type="button" class="generate-button" onclick="generateJSON()">Generate JSON</button>
+                </form>
+
+                <div id="output-section" style="display: none;">
+                    <pre id="output"></pre>
+                    <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+                    <p class="helper-text" style="margin-top: 1rem;">
+                        Now open recipes.json, add a comma after the last recipe, paste this, and commit!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize with one field of each type
+        document.addEventListener('DOMContentLoaded', () => {
+            addTag();
+            addIngredient();
+            addInstruction();
+        });
+
+        function addTag() {
+            const container = document.getElementById('tags-container');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'item-wrapper';
+            wrapper.innerHTML = `
+                <input type="text" class="tag-input" placeholder="e.g., Dessert">
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(wrapper);
+        }
+
+        function addIngredient() {
+            const container = document.getElementById('ingredients-container');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'item-wrapper';
+            wrapper.innerHTML = `
+                <input type="text" class="ingredient-input" placeholder="e.g., 1 cup rice">
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(wrapper);
+        }
+
+        function addInstruction() {
+            const container = document.getElementById('instructions-container');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'item-wrapper';
+            const stepNum = container.children.length + 1;
+            wrapper.innerHTML = `
+                <input type="text" class="instruction-input" placeholder="Step ${stepNum}">
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(wrapper);
+        }
+
+        function addTip() {
+            const container = document.getElementById('tips-container');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'item-wrapper';
+            wrapper.innerHTML = `
+                <input type="text" class="tip-input" placeholder="e.g., Don't walk away from the pot">
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(wrapper);
+        }
+
+        function generateJSON() {
+            const id = document.getElementById('id').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const subtitle = document.getElementById('subtitle').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const image = document.getElementById('image').value.trim();
+
+            if (!id || !title || !description) {
+                alert('Please fill out all required fields (ID, Title, Description)');
+                return;
+            }
+
+            const tags = Array.from(document.querySelectorAll('.tag-input'))
+                .map(input => input.value.trim())
+                .filter(val => val);
+
+            const ingredients = Array.from(document.querySelectorAll('.ingredient-input'))
+                .map(input => input.value.trim())
+                .filter(val => val);
+
+            const instructions = Array.from(document.querySelectorAll('.instruction-input'))
+                .map(input => input.value.trim())
+                .filter(val => val);
+
+            const tips = Array.from(document.querySelectorAll('.tip-input'))
+                .map(input => input.value.trim())
+                .filter(val => val);
+
+            if (tags.length === 0 || ingredients.length === 0 || instructions.length === 0) {
+                alert('Please add at least one tag, ingredient, and instruction');
+                return;
+            }
+
+            const recipe = {
+                id,
+                title,
+                ...(subtitle && { subtitle }),
+                description,
+                ...(image && { image }),
+                tags,
+                ingredients,
+                instructions,
+                ...(tips.length > 0 && { tips })
+            };
+
+            const jsonOutput = JSON.stringify(recipe, null, 2);
+            document.getElementById('output').textContent = jsonOutput;
+            document.getElementById('output-section').style.display = 'block';
+            document.getElementById('output').style.display = 'block';
+
+            // Scroll to output
+            document.getElementById('output-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(output).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

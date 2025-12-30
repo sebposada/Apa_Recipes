@@ -34,14 +34,21 @@ function displayRecipeGrid(recipesToDisplay) {
 
     grid.innerHTML = recipesToDisplay.map(recipe => `
         <div class="recipe-card" data-recipe-id="${recipe.id}">
-            <h3>${recipe.title}</h3>
-            ${recipe.subtitle ? `<p class="recipe-subtitle">${recipe.subtitle}</p>` : ''}
-            <p class="recipe-description">${recipe.description}</p>
-            <div class="recipe-tags">
-                ${recipe.tags.map(tag => {
-                    const isSpecial = tag === 'Family Favorite' || tag === 'Grandpa Approved';
-                    return `<span class="tag ${isSpecial ? 'special' : ''}">${tag}</span>`;
-                }).join('')}
+            ${recipe.image ? `
+                <div class="recipe-card-image">
+                    <img src="images/${recipe.image}" alt="${recipe.title}" loading="lazy">
+                </div>
+            ` : ''}
+            <div class="recipe-card-content">
+                <h3>${recipe.title}</h3>
+                ${recipe.subtitle ? `<p class="recipe-subtitle">${recipe.subtitle}</p>` : ''}
+                <p class="recipe-description">${recipe.description}</p>
+                <div class="recipe-tags">
+                    ${recipe.tags.map(tag => {
+                        const isSpecial = tag === 'Family Favorite' || tag === 'Grandpa Approved';
+                        return `<span class="tag ${isSpecial ? 'special' : ''}">${tag}</span>`;
+                    }).join('')}
+                </div>
             </div>
         </div>
     `).join('');
@@ -65,6 +72,12 @@ function showRecipeDetail(recipeId) {
     const detailContainer = document.getElementById('recipe-detail');
     detailContainer.innerHTML = `
         <div class="recipe-detail-container">
+            ${recipe.image ? `
+                <div class="recipe-detail-image">
+                    <img src="images/${recipe.image}" alt="${recipe.title}">
+                </div>
+            ` : ''}
+
             <div class="recipe-header">
                 <h2 class="recipe-title">${recipe.title}</h2>
                 ${recipe.subtitle ? `<p class="recipe-meta">${recipe.subtitle}</p>` : ''}
