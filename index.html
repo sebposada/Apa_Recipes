@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="site-header">
@@ -24,14 +24,22 @@
         <div class="container">
             <!-- Home View: Recipe List -->
             <div id="home-view" class="view active">
-                <div class="search-section">
-                    <input
-                        type="text"
-                        id="search-input"
-                        class="search-input"
-                        placeholder="Find a recipe. Try not to mess it up."
-                    >
-                </div>
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <h1 class="hero-title">Grumpy Apa's Kitchen</h1>
+                    <p class="hero-subtitle">
+                        Family recipes. Passed down, not prettied up.
+                        <span class="typewriter">Don't mess them up.</span>
+                    </p>
+                    <div class="search-section">
+                        <input
+                            type="text"
+                            id="search-input"
+                            class="search-input"
+                            placeholder="Find a recipe. Try not to mess it up."
+                        >
+                    </div>
+                </section>
 
                 <div id="recipe-grid" class="recipe-grid">
                     <!-- Recipe cards will be inserted here by JavaScript -->

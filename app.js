@@ -72,7 +72,7 @@ function showRecipeDetail(recipeId) {
 
             ${recipe.tips && recipe.tips.length > 0 ? `
                 <div class="tips-section">
-                    <div class="tips-header">Listen up.</div>
+                    <div class="tips-header">Grandpa Tip</div>
                     ${recipe.tips.map(tip => `<p class="tip-text">${tip}</p>`).join('')}
                 </div>
             ` : ''}
