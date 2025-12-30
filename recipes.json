@@ -1,0 +1,131 @@
+[
+  {
+    "id": "arroz-con-leche",
+    "title": "Arroz con Leche",
+    "subtitle": "Rice Pudding",
+    "description": "Classic rice pudding with cinnamon, cloves, and a hint of flan. Creamy, sweet, and worth the constant stirring.",
+    "tags": ["Dessert", "Family Favorite"],
+    "ingredients": [
+      "1 cup rice",
+      "1 cinnamon stick",
+      "Whole cloves (a few)",
+      "½ box flan mix (Royal brand)",
+      "1 can evaporated milk",
+      "1 can condensed milk",
+      "4 tablespoons white sugar",
+      "Raisins"
+    ],
+    "instructions": [
+      "Wash the rice thoroughly until the water runs clear.",
+      "Place the rice in a pot with the cinnamon stick and cloves. Cover with water and boil for about 15 minutes until the rice is cooked and has expanded. Drain any excess water, but keep the rice somewhat watery.",
+      "Dissolve half a box of flan mix into the can of evaporated milk, then add this mixture to the cooked rice.",
+      "Stir in the condensed milk, sugar, and raisins.",
+      "Cook over medium-low heat, stirring constantly for another 15 minutes. Use a flat utensil to scrape the bottom of the pot continuously—the sugar content makes it prone to sticking and burning.",
+      "Cook until the consistency is slightly loose (it will thicken as it cools).",
+      "Let cool and serve."
+    ],
+    "tips": [
+      "Don't walk away from the pot during that second 15 minutes, and keep the heat moderate to prevent burning."
+    ]
+  },
+  {
+    "id": "sunday-pancakes",
+    "title": "Sunday Pancakes",
+    "subtitle": "The ones you remember",
+    "description": "Fluffy pancakes that Apa made every Sunday morning. No fancy ingredients, just done right.",
+    "tags": ["Breakfast", "Sunday"],
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "2 tablespoons sugar",
+      "2 teaspoons baking powder",
+      "1 teaspoon salt",
+      "2 eggs",
+      "1½ cups milk",
+      "¼ cup melted butter",
+      "1 teaspoon vanilla extract"
+    ],
+    "instructions": [
+      "Mix the dry ingredients in a large bowl.",
+      "In another bowl, beat the eggs, then add milk, melted butter, and vanilla.",
+      "Pour the wet ingredients into the dry ingredients and stir until just combined. Don't overmix—lumps are fine.",
+      "Heat a griddle or pan over medium heat. Add a bit of butter.",
+      "Pour ¼ cup of batter for each pancake. Cook until bubbles form on the surface, then flip.",
+      "Cook the other side until golden brown.",
+      "Serve hot with butter and syrup."
+    ],
+    "tips": [
+      "The pan is ready when a drop of water sizzles and disappears.",
+      "Don't press down on the pancakes with the spatula. Let them be."
+    ]
+  },
+  {
+    "id": "chicken-soup",
+    "title": "Caldo de Pollo",
+    "subtitle": "Chicken Soup",
+    "description": "The cure for everything. Simple, hearty, and makes the whole house smell like home.",
+    "tags": ["Soup", "Comfort Food"],
+    "ingredients": [
+      "1 whole chicken, cut into pieces",
+      "8 cups water",
+      "2 carrots, cut into chunks",
+      "2 celery stalks, cut into chunks",
+      "1 large onion, quartered",
+      "3 garlic cloves, smashed",
+      "2 bay leaves",
+      "Salt and pepper to taste",
+      "Fresh cilantro for serving",
+      "Lime wedges for serving"
+    ],
+    "instructions": [
+      "Place the chicken pieces in a large pot with the water.",
+      "Bring to a boil, then reduce heat and skim off any foam that rises to the top.",
+      "Add carrots, celery, onion, garlic, and bay leaves.",
+      "Season with salt and pepper.",
+      "Simmer for 45 minutes to 1 hour, until the chicken is tender and falling off the bone.",
+      "Remove chicken pieces and shred the meat, discarding bones and skin.",
+      "Return the shredded chicken to the pot.",
+      "Taste and adjust seasoning.",
+      "Serve hot with fresh cilantro and lime wedges."
+    ],
+    "tips": [
+      "Don't rush the simmer. Low and slow is the secret.",
+      "Save the bones and make a second batch of broth. Waste nothing."
+    ]
+  },
+  {
+    "id": "beef-stew",
+    "title": "Guisado de Res",
+    "subtitle": "Beef Stew",
+    "description": "Tender beef in a rich tomato-based sauce. Serve over rice and watch it disappear.",
+    "tags": ["Dinner", "Comfort Food"],
+    "ingredients": [
+      "2 lbs beef stew meat, cubed",
+      "2 tablespoons vegetable oil",
+      "1 onion, diced",
+      "3 garlic cloves, minced",
+      "2 tomatoes, diced",
+      "1 bell pepper, diced",
+      "2 potatoes, cubed",
+      "1 cup beef broth",
+      "1 teaspoon cumin",
+      "1 teaspoon paprika",
+      "Salt and pepper to taste",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Heat oil in a large pot over medium-high heat.",
+      "Brown the beef in batches. Don't crowd the pot. Set aside.",
+      "In the same pot, sauté onion and garlic until softened.",
+      "Add tomatoes and bell pepper. Cook until tomatoes break down.",
+      "Return the beef to the pot. Add cumin, paprika, salt, and pepper.",
+      "Pour in the beef broth and bring to a boil.",
+      "Reduce heat, cover, and simmer for 1 hour.",
+      "Add potatoes and cook for another 30 minutes until tender.",
+      "Garnish with fresh cilantro and serve over white rice."
+    ],
+    "tips": [
+      "Brown the meat properly. That's where the flavor comes from.",
+      "If it looks too thick, add a little water. If it's too thin, let it simmer uncovered."
+    ]
+  }
+]
